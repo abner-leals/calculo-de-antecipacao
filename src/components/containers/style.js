@@ -54,7 +54,7 @@ export const QuadroRes = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
-    padding-top: 15px;
+
     text-transform: uppercase;
     color: #3d75bb;
   }
@@ -80,6 +80,11 @@ export const QuadroRes = styled.div`
 
     background-color: #d1dce32e;
   }
+  @media (max-width: 615px) {
+    width: 100%;
+    text-align: center;
+    padding: 0 23.5px;
+  }
 `;
 export const QuadroValores = styled.ul`
   font-style: italic;
@@ -88,6 +93,9 @@ export const QuadroValores = styled.ul`
   line-height: 46px;
   color: #5d9cec;
   list-style: none;
+  li {
+    line-height: 30px;
+  }
 `;
 
 export const Content = styled.div`
@@ -95,14 +103,54 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
-  min-height: 390;
+  min-height: 390px;
   max-width: 610px;
   background: #ffffff;
   border: 1px solid #d1dce3;
   border-radius: 4px;
+  justify-content: center;
+  /* padding-top: 15rem; */
   @media (min-width: 615px) {
+    padding-top: 0;
+    justify-content: space-around;
     flex-direction: row;
+  }
+  @media (max-width: 615px) {
+    padding-top: 0;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 778px;
+  }
+`;
+
+export const PeriodoContainer = styled.div`
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #dde6e9;
+  color: #666360;
+  padding: 0;
+  width: 251px;
+  display: flex;
+  height: 37px;
+  justify-content: space-between;
+  padding: 0 0 0 10px;
+
+  ul {
+    display: flex;
+    font-size: 10px;
+    justify-content: space-evenly;
+    li {
+      margin: 2px;
+      font-size: 12px;
+      list-style: none;
+    }
+  }
+  button {
+    height: 100%;
+    width: 50px;
+    font-size: 12px;
+    border: 1px solid #dde6e9;
+    border-radius: 4px;
   }
 `;
