@@ -8,7 +8,13 @@ Este projeto foi inicializado com [Create React App](https://github.com/faceboo
 
 ## Scripts Disponíveis
 
+É nescessário ter o yarn instalado na sua máquina.
+
 No diretório do projeto, você pode executar:
+
+### yarn
+
+Baixa todas as dependencias necessárias para a aplicação ser executada.
 
 ### `yarn start`
 
