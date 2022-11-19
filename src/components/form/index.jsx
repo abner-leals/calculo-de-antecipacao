@@ -4,37 +4,42 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Input from "../input";
-import { QuadroReq } from "../containers/style";
+import { PeriodoContainer, QuadroReq } from "../containers/style";
 import api from "../../services/api";
 import { ValoresContext } from "../../contexts/valoresCalculados";
 
 const FormularioReq = () => {
-  const { valores, atualizar } = useContext(ValoresContext);
+  const { atualizar, adicionar, days, remover } = useContext(ValoresContext);
   const schema = yup.object().shape({
     amount: yup
       .number()
       .required("Campo obrigatório!")
-      .moreThan(999, "O valor informado deve ser maior ou igual a 1000,00"),
+      .typeError("Apenas números")
+      .moreThan(9.99, "O valor informado deve ser maior ou igual a 10,00"),
     installments: yup
-      .number("Informe um numero maior que 0.")
+      .number()
       .required("Campo obrigatório!")
+      .typeError("Apenas números")
       .positive("O valor informado deve ser maior que 0.")
       .moreThan(0, "A quantidade de parcela deve ser maior ou igual a 1")
       .lessThan(13, "A quantidade de parcelas deve ser menor igual a  12"),
     mdr: yup
-      .number('Informe um numero se decimal separado por " . " .')
+      .number()
       .required("Campo obrigatório")
+      .typeError("Apenas números")
       .positive("O valor informado deve ser maior que 0."),
+    days: yup.number().typeError("Apenas números").optional(),
   });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    formState,
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
+    data.days = days;
+    data.amount = data.amount * 100;
     api.post("", data).then((response) => {
       atualizar(response.data);
     });
@@ -42,6 +47,7 @@ const FormularioReq = () => {
   const [valor, setValor] = useState();
   const [parcela, setParcela] = useState();
   const [mdr, setMdr] = useState();
+  const [dias, setDias] = useState([]);
 
   return (
     <QuadroReq onSubmit={handleSubmit((data) => onSubmit(data))}>
@@ -79,8 +85,43 @@ const FormularioReq = () => {
           setMdr(e.target.value);
         }}
       />
-
-      <button type="submit"> Calcular </button>
+      <Input
+        label="Novo período de dias "
+        placeholder="Adicione novo periodo ."
+        register={register}
+        name="days"
+        error={errors.days?.message}
+        value={dias}
+        onChange={(e) => {
+          if (e.key === "Enter") {
+            console.log("ok");
+          }
+          setDias(e.target.value);
+        }}
+        texto="Add"
+        botaoclick={() => {
+          adicionar(dias);
+          setDias([]);
+        }}
+        typebotao={"button"}
+      />
+      <PeriodoContainer>
+        <ul>
+          {days?.map((dia) => {
+            return (
+              <li
+                key={dia}
+                onClick={(e) => {
+                  remover(dia);
+                }}
+              >
+                {dia}
+              </li>
+            );
+          })}
+        </ul>
+        <button type="submit"> Calcular </button>
+      </PeriodoContainer>
     </QuadroReq>
   );
 };
