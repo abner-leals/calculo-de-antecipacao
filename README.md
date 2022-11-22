@@ -1,50 +1,57 @@
-# calculo-de-antecipacao
+# Calculo de Antecipação
 
-Ferramenta desenvolvida com o intuito de calcular o custo de antecipação de valores de acordo com a Taxa de Juros informada.
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/abner-leals/calculo-de-antecipacao/blob/master/LICENSE)
 
-# Introdução ao Create React App
+Sobre o projeto
 
-Este projeto foi inicializado com [Create React App](https://github.com/facebook/create-react-app) .
+https://antecipacao-app-three.vercel.app/
 
-## Scripts Disponíveis
+Calculo de Antecipação é uma aplicação frontend, web e mobile construída durante o teste conhecimento de frontend no **Módulo 6** (s1-01), do curso FullStack da [Kenzie Academy Brasil](https://kenzie.com.br "Site da Kenzie Academy Brasil").
 
-É nescessário ter o yarn instalado na sua máquina.
+A aplicação consiste em uma simulação de antecipação de parcelas, onde os dados são coletados, e depois são calculados e listados os valores mediante ao período informado.
 
-No diretório do projeto, você pode executar:
+## Layout mobile
 
-### yarn
+<img alt="Mobile" style="width:250px;" src="https://github.com/abner-leals/calculo-de-antecipacao/blob/master/public/imgs/sc.jpeg?raw=true" >
 
-Baixa todas as dependencias necessárias para a aplicação ser executada.
+## Layout web
 
-### `yarn start`
+<img alt="Descktop" src="https://github.com/abner-leals/calculo-de-antecipacao/blob/master/public/imgs/image%20(2).png?raw=true">
 
-Executa o aplicativo no modo de desenvolvimento.
-Abra [http://localhost:3000](http://localhost:3000/) para visualizá-lo em seu navegador.
+# Tecnologias utilizadas
 
-A página será recarregada quando você fizer alterações.
-Você também pode ver erros de lint no console.
+## Front end
 
-### `yarn test`
+- HTML / CSS / JS / TypeScript
+- ReactJS
+  -Styled Components
 
-Inicia o executor de teste no modo de observação interativo.
-Consulte a seção sobre como [executar testes](https://facebook.github.io/create-react-app/docs/running-tests) para obter mais informações.
+## Implantação em produção
 
-### `yarn build`
+- Front end web: Vercel
 
-Cria o aplicativo para produção na `build`pasta.
-Ele empacota corretamente o React no modo de produção e otimiza a compilação para obter o melhor desempenho.
+# Como executar o projeto
 
-A compilação é minificada e os nomes dos arquivos incluem os hashes.
-Seu aplicativo está pronto para ser implantado!
+## Front end web
 
-Consulte a seção sobre [implantação](https://facebook.github.io/create-react-app/docs/deployment) para obter mais informações.
+Pré-requisitos: npm / yarn
 
-### `yarn eject`
+```bash
+# clonar repositório
+git clone https://github.com/abner-leals/calculo-de-antecipacao.git
 
-**Nota: esta é uma operação unidirecional. Uma vez que você `eject`, você não pode voltar atrás!**
+# entrar na pasta do projeto front end web
+cd calculo-de-antecipacao/
 
-Se você não estiver satisfeito com a ferramenta de compilação e as opções de configuração, poderá fazê-lo `eject`a qualquer momento. Este comando removerá a dependência de compilação única do seu projeto.
+# instalar dependências
+yarn install
 
-Em vez disso, ele copiará todos os arquivos de configuração e as dependências transitivas (webpack, Babel, ESLint, etc) diretamente para o seu projeto, para que você tenha controle total sobre eles. Todos os comandos, exceto `eject`, ainda funcionarão, mas apontarão para os scripts copiados para que você possa ajustá-los. Neste ponto você está por conta própria.
+# executar o projeto
+yarn start
+```
 
-Você não precisa nunca usar `eject`. O conjunto de recursos selecionados é adequado para implantações pequenas e médias, e você não deve se sentir obrigado a usar esse recurso. No entanto, entendemos que esta ferramenta não seria útil se você não pudesse personalizá-la quando estivesse pronto para ela.
+# Autor
+
+Abner Leal Silva
+
+https://www.linkedin.com/in/abner-leal
